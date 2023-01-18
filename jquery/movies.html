@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+</head>
+<body>
+    <div id="container">
+        <form action=#>
+            <div>
+                <label for="title"> Title of Movie</label>
+                <input type="text" id="title">
+            </div>
+            
+            <div>
+                <label for="rating">Rating</label>
+                <input type="text" id="rating" placeholder="1-10">
+            </div>
+            <div>
+                <button id="sub">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div id="results">
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $('#sub').on('click', function(){
+            const movie =  $('<div>')
+            movie.text(`${$('#title').val()}: ${$('#rating').val()} `)
+
+            const remover = $('<button>');
+            remover.attr('id', 'remover').text('remove')
+            $('#results').append(movie);
+            $('#results').append(remover);
+        })
+        $('#results').on('click', '#remover', function(e){
+            console.log('hefiun')
+            e.target.parentElement.remove()
+        })
+        
+    </script>
+</body>
+</html>
